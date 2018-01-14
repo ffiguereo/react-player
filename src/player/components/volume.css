@@ -1,0 +1,45 @@
+.Volume {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.Volume:active, .Volume:focus {
+    border: none;
+    outline: none;
+}
+
+.Volume-range {
+    transform: rotate(-90deg);
+    transform-origin: left bottom;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    display: none;
+    text-align: center
+}
+
+.Volume-range .Volume-clear {
+    width: 4.1em;
+    background: transparent;
+}
+.Volume .Volume-input {
+    height: 50px;
+    background: rgba(0,0,0,.4);
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    justify-content: center;
+    padding-right: 1em;
+    align-items: center;
+}
+.Volume .Volume-input input {
+    cursor: grab;
+}
+
+.Volume:hover .Volume-range {
+    display: flex;
+}
