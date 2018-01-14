@@ -1,0 +1,17 @@
+.Title {
+    position: absolute;
+    background: rgba(0,0,0,.4);
+    border-radius: 2em;
+    padding: 1em;
+    top: 1em;
+    left: 1em;
+    min-width: 20%;
+    display: none;
+}
+
+.Title h2 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
