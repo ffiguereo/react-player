@@ -1,0 +1,13 @@
+.VideoPlayerLayout {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+
+.VideoPlayerLayout:hover .Title,
+.VideoPlayerLayout:hover .Controls {
+    display: flex;
+}
