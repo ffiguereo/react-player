@@ -1,0 +1,9 @@
+.Timer {
+    margin-left: 1em;
+}
+
+.Timer p {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
