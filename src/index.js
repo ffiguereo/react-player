@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import VideoPlayer from './pages/containers/video-player';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<VideoPlayer />, document.getElementById('root'));
+
 registerServiceWorker();
