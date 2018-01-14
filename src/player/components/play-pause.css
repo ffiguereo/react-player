@@ -1,0 +1,10 @@
+.PlayPause button {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.PlayPause button:active, .PlayPause button:focus {
+    border: none;
+    outline: none;
+}
