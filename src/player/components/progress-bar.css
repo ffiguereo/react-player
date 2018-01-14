@@ -1,0 +1,10 @@
+.ProgressBar {
+    flex: 1;
+    margin-left: 1em;
+}
+
+.ProgressBar input {
+    width: 100%;
+    cursor: grab;
+    background-color: transparent;
+}
