@@ -8,6 +8,7 @@ import PlayPause from '../components/play-pause';
 import Timer from '../components/timer';
 import ProgressBar from '../components/progress-bar';
 import Volume from '../components/volume';
+import FullScreen from '../components/full-screen';
 
 class VideoPlayer extends Component {
     state = {
@@ -19,6 +20,7 @@ class VideoPlayer extends Component {
     }
 
     componentDidMount() {
+        this.handleSetFullScreen();
         this.setState({
             pause: (!this.props.autoplay)
         })
@@ -56,6 +58,33 @@ class VideoPlayer extends Component {
         this.video.volume = event.target.value;
     }
 
+    handleFullScreen = (event) => {
+        if (!this.handleCheckFullScreen()) {
+            this.player.requestFullscreen()
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
+    handleCheckFullScreen = () => {
+        return document.fullscreen || document.webkitIsFullScreen ||document.mozFullScreen;
+    }
+
+    handleSetFullScreen = () => {
+        document.exitFullscreen =   document.exitFullscreen ||
+                                    document.mozCancelFullScreen ||
+                                    document.webkitExitFullscreen ;
+    }
+
+    refPlayer = (element) => {
+        this.player = element;
+
+        this.player.requestFullscreen = this.player.requestFullscreen ||
+                                        this.player.mozRequestFullScreen ||
+                                        this.player.webkitRequestFullscreen ||
+                                        this.player.msRequestFullscreen;
+    }
+
     refVideo = (element) => {
         this.video = element;
     }
@@ -69,7 +98,7 @@ class VideoPlayer extends Component {
     }
     render() {
         return (
-            <VideoPlayerLayout>
+            <VideoPlayerLayout setRef={this.refPlayer} >
                 <Title title={this.props.title} />
                 <Controls>
                     <PlayPause
@@ -87,6 +116,9 @@ class VideoPlayer extends Component {
                     />
                     <Volume
                         onChange={this.handleVolumeChange}
+                    />
+                    <FullScreen
+                        onClick={this.handleFullScreen}
                     />
                 </Controls>
                 <Video
